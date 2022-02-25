@@ -5,9 +5,60 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <script type="module" src="/main.js"></script>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <article class="Card">
+      <img
+        src="data:image/png;base64,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"
+      />
+      <section class="Card__information">
+        <h2>Name</h2>
+        <p>Status</p>
+        <h3 class="Card__information-headline">some random Info</h3>
+        <p>text</p>
+        <h3 class="Card__information-headline">some more random Info</h3>
+        <p>text</p>
+      </section>
+    </article>
+    <article class="Card">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAh1BMVEX///8AAAD7+/v19fX4+PjV1dVTU1Pt7e2QkJDb29sQEBDq6url5eXx8fF9fX3z8/OsrKzJycmcnJwXFxcnJye6uro+Pj41NTVZWVnDw8Nra2u0tLTh4eHNzc2jo6NLS0uLi4tvb28fHx+CgoJiYmIsLCw6OjqXl5d1dXVVVVUiIiITExNFRUWfkpjoAAAG5UlEQVR4nO2dCXbqOgyGcQZIQoAMZZ4ShoYW9r++B7y2UCCJZINt9fpbAEf/cWxLsiQaDYPBYDAYDAaDwWAwGAwPsXqtdrvtu37bUW3KC7DDmRt1D3t2JrFV2/NkQjf2mgG7IrNU2/REWvPp5pPdEqk262mE/e72Tt6Roavasudgj/P9I31H8j+xFTvJsEQfY59/4TttrVelAhkbhartE6azCyoEsjRRbaAoTlal77SIvmoTBYlqBB7vfdUmiuHWCmTLuWojhagXyFhB2bNpQhS+jVWbyU8fIvDonnZUG8pLByaQMbKLOIEqzNuqTeVjXOaM3tNXbSsXvSVYIGuS9N2SFK6QRQRvjBCxhMdAkeAiFvBdeMIjt4g+6LK/EJBbxAS3hIztVFuMJNwgBTJGLGUTVcX1jzmothmFvUYLZGyq2moM8YFDYaraagwLDoGMrVWbDae941K4mqk2HEz8zqWQbVQbDmbKJ5C9UYkx7IJTIWsSCRRn+Ov+i2BN49V0/vCdCcSWxqU45hbI2AeJFDjvQXNmTSDx1uM+aE5sCZyn7a6IQpbrHylyRE6/0H8RZ6gMzT1d7S9FnyewuGKr/WOUz+mV/hCrVlCHX16YAEP7Zwx/ICaQwFcquA/XLdUK6pghU6U3DLXfhoL3YbrQP/vdEvFpgrX2t6FIAHxkRyJXwx9bBDQECsSHXf297jPzN06BOwJ78Iw/4hOYaH8RftPzuAT2aWShznAdNaRe18b4jUjsId9HezW7nmqbkSRIgTSypNdMMbU0FHztO1zMfdEkdcZ8YdVVd1+xoSiw0YigxSbBhEQa/x4XGAWTFdhoAIsxCPciRKBLf6h90qmcEHKaBqR7LSCf6ZB051ofkBf+UG2kEBbgM22qNlIMr/5KHKq2UQzA88WKoEN6DeAzzVXbKAbAc3unFffe4tSX1QSZaiPFyOs/0wHNwOKbuF4h2+n/DlMF4NIf6l95UQUkXbMhfdhAGhD3pL1vUJcsyTTND6BXKI9yhGFB4mCKycQLoLaELpk3pwe0IAoDyjcGLHG6pPG2/ZgQopAVhA+bHqxlnW5S8RgIgxQuCR82HVj90EK1nQK4lTOG/sJ32oIl+JeED5v5/SS6RxD2wDvAx0TCbxgurHh/S6Ui6h4LWLhAOKMBbNcLCF8ZEeyw2WpfpV9KD9j63KR7K7rA+v0dgd68EgpYDVFAb4rLN5DnxLNEuqcNtDmY8Hy6AuaBU5YILclckk2gtqB1tRuyaRtwcfSO7FsGuF2ISt/FHQ64q41sktgFl7jr34RYQv1Y4Z9VJBotOvBmE6ojPxEDlnKigYb7AZY44s/chF6e7zxFrsMYPr1myevALQ4nF3E/WKvxHeCnDRvy/bFA/h2qBUMlXcUWoos2TfAWOteBWqDk5c7GtEJ3sVG/fetWeC8RUQ2qnx2Zu3HuQ+2BgsZGaDvGmXSM+FLth++VCnYjbnRkAr78yzbAIJbe/gcpdL8ADYorXKaNK/txCznDdQpZA6uqjyXNfMnf6gKYt/kiAyxjXP0EtIwk+4HIIafv/bp7o/55ZBTJdeeR8zPSmmWETBwJulJ74jHOzZlmVBEXO7Bf265lZisdbEf0Z156N1rgo2uQSXxtttHTF96zkiQVZhjHoZC3HTtoifvlwxIxF3W/7j/k/fcisBbll3nN+4LUFnZkajqSth155kimk9sV4JgJm0prIucbK/X7EY5zQpysZBfXiHr2eTkQO/xTfQs5t2Ptv889ZhQ7p6vDinlHGp3YyvlUrQzno34zLPy2yzf//cJCzjJ6qFEhz2UtJ+QAVjK8BEmzYxK+D/UZjOQohA8LeToDSQobU8GpoPorbMScc95EWUpT2HAF52RzImsfnpiJDTvnZCJRYaOFjYmfQSZTYcOJ5F+MshvL+vx+NCfSn9Oxf0onSiBb4DGcEnWmcUi8LC5k+L9t4ydToVCqf6OonqE9keaJqxF4xBP9AwIgSrbh//Tl+HAqO8pCT/SfMiAoLfS0JCyj6r/OnBWv3o3Kx9/a4xcvowZ1rGEikg+tQ4seHcd/XdT4pklbgA1tDEOjz0QOq/8SgYlWg+75/p+2kky3XsDFkyMOjsrOV2MXg+flOFK9PtEf+psnJTkG+hwyt4x3B/GFDCZazzfwi1zw9hgUGrgy1cTZSODYyUlMF/OjrMmXBmgutF/ALyw36uIjjzdVfSZ8tONFjjp2tt5YzzuigjAuwMfOah2TnPNj+3EXMndjW7i6eWlwOrN5VrMlJ/2Q5PpdsFt+UvrgsZm2qf0Z0UMsx3aTzU1GYPVR+Da506WG4wnrnVmMQ/3CB4PBYDAYDAaDwWAwGAwGg8FgMBgMBsM/y38MvGqSXPF6/wAAAABJRU5ErkJggg=="
+      />
+      <section class="Card__information">
+        <h2>Name</h2>
+        <p>Status</p>
+        <h3 class="Card__information-headline">some random Info</h3>
+        <p>text</p>
+        <h3 class="Card__information-headline">some more random Info</h3>
+        <p>text</p>
+      </section>
+    </article>
+    <article class="Card">
+      <img
+        src="data:image/png;base64,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"
+      />
+      <section class="Card__information">
+        <h2>Name</h2>
+        <p>Status</p>
+        <h3 class="Card__information-headline">some random Info</h3>
+        <p>text</p>
+        <h3 class="Card__information-headline">some more random Info</h3>
+        <p>text</p>
+      </section>
+    </article>
+    <article class="Card">
+      <img
+        src="data:image/png;base64,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"
+      />
+      <section class="Card__information">
+        <h2>Name</h2>
+        <p>Status</p>
+        <h3 class="Card__information-headline">some random Info</h3>
+        <p>text</p>
+        <h3 class="Card__information-headline">some more random Info</h3>
+        <p>text</p>
+      </section>
+    </article>
   </body>
 </html>

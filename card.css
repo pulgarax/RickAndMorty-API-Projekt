@@ -1,0 +1,20 @@
+.Card {
+  border-radius: 10px;
+  border: black 2px solid;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  background-color: lightslategrey;
+}
+
+.Card__information {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  justify-content: space-between;
+}
+
+.Card__information-headline {
+  color: lightgrey;
+  font-size: small;
+}
