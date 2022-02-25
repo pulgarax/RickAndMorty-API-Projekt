@@ -2,9 +2,8 @@
   border-radius: 10px;
   border: black 2px solid;
   width: 600px;
-  height: 300px;
   display: flex;
-  background-color: #3C3E44;
+  background-color: #3c3e44;
   overflow: hidden;
 }
 
@@ -17,23 +16,41 @@
 
 .Card__information-headline {
   color: lightgrey;
-  font-size: small;
+  font-size: medium;
 }
 
 .card-container {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   gap: 20px;
 }
 
 .formstyle {
-
   border-radius: 20px;
   background-color: tomato;
   border: saddlebrown solid 4px;
+  max-width: 575px;
+  margin: 40px;
 }
 
 .card-header {
-font-family: 'Archivo Black';
+  font-family: "Archivo Black";
+}
 
+.bigger-size {
+  font-weight: 900;
+}
+
+.Card__header-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
 }
