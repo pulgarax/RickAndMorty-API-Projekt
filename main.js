@@ -1,6 +1,9 @@
 import "./style.css";
 
+
+
 const apiurl = "https://rickandmortyapi.com/api/character";
+
 
 fetchCharacters();
 
@@ -32,7 +35,7 @@ async function fetchCharacters() {
         cardElement.innerHTML = `
     <img src="${card.image}"/>
       <section class="Card__information">
-        <h2>${card.name}</h2>
+        <h2 class='card-header'>${card.name}</h2>
         <p>${card.status} - ${card.species}</p>
         <h3 class="Card__information-headline">Last known location:</h3>
         <p>${card.location.name}</p>

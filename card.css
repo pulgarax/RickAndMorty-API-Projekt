@@ -4,7 +4,8 @@
   width: 600px;
   height: 300px;
   display: flex;
-  background-color: lightslategrey;
+  background-color: #3C3E44;
+  overflow: hidden;
 }
 
 .Card__information {
@@ -17,4 +18,22 @@
 .Card__information-headline {
   color: lightgrey;
   font-size: small;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;  
+  gap: 20px;
+}
+
+.formstyle {
+
+  border-radius: 20px;
+  background-color: tomato;
+  border: saddlebrown solid 4px;
+}
+
+.card-header {
+font-family: 'Archivo Black';
+
 }
