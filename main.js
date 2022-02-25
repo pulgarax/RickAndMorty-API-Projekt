@@ -4,17 +4,30 @@ const apiurl = "https://rickandmortyapi.com/api/character";
 
 fetchCharacters();
 
-let cards = [];
-
 const cardsContainer = document.querySelector("[data-js=cards]");
+let episodeLink = "";
 
 async function fetchCharacters() {
   try {
     const response = await fetch(apiurl);
     const data = await response.json();
+    let episodeData = "";
     cardsContainer.innerHTML = "";
     data.results.forEach((card) => {
       const cardElement = document.createElement("article");
+      episodeLink = card.episode[0];
+      // console.log(episodeLink);
+      const secondReponse = fetch(episodeLink).then((secondReponse) =>
+        secondReponse.json().then((secondData) => {
+          episodeData = secondData;
+          // console.log(episodeData);
+          return episodeData;
+        })
+      );
+      console.log(secondReponse);
+      // const episode = secondReponse.json();
+      // console.log(episode.results);
+
       cardElement.className = "Card";
       cardElement.innerHTML = `
     <img src="${card.image}"/>
@@ -24,7 +37,9 @@ async function fetchCharacters() {
         <h3 class="Card__information-headline">Last known location:</h3>
         <p>${card.location.name}</p>
         <h3 class="Card__information-headline">First seen in:</h3>
-        <p>${card.episode[0]}</p>
+        <p>
+        
+        </p>
       </section>
       `;
       cardsContainer.append(cardElement);
