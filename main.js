@@ -6,6 +6,8 @@ fetchCharacters();
 
 const cardsContainer = document.querySelector("[data-js=cards]");
 let episodeLink = "";
+let currentFilter = "all";
+const filterForm = document.querySelector("[data-js=filter-form]");
 
 async function fetchCharacters() {
   try {
@@ -13,14 +15,21 @@ async function fetchCharacters() {
     const data = await response.json();
     let episodeData = "";
     cardsContainer.innerHTML = "";
-    data.results.forEach(async(card) => {
-      const cardElement = document.createElement("article");
-      episodeLink = card.episode[0];
-      const secondResponse = await fetch(episodeLink);
-      const episodeData = await secondResponse.json();
-      console.log(episodeData);
-      cardElement.className = "Card";
-      cardElement.innerHTML = `
+    data.results
+      .filter(
+        (card) =>
+          card.status == currentFilter ||
+          currentFilter == "all" ||
+          card.species == currentFilter
+      )
+      .forEach(async (card) => {
+        const cardElement = document.createElement("article");
+        episodeLink = card.episode[0];
+        const secondResponse = await fetch(episodeLink);
+        const episodeData = await secondResponse.json();
+        console.log(episodeData);
+        cardElement.className = "Card";
+        cardElement.innerHTML = `
     <img src="${card.image}"/>
       <section class="Card__information">
         <h2>${card.name}</h2>
@@ -33,9 +42,14 @@ async function fetchCharacters() {
         </p>
       </section>
       `;
-      cardsContainer.append(cardElement);
-    });
+        cardsContainer.append(cardElement);
+      });
   } catch (error) {
     console.log(error);
   }
 }
+
+filterForm.addEventListener("change", () => {
+  currentFilter = filterForm.elements["tag-filter"].value;
+  fetchCharacters();
+});
