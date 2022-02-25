@@ -13,21 +13,12 @@ async function fetchCharacters() {
     const data = await response.json();
     let episodeData = "";
     cardsContainer.innerHTML = "";
-    data.results.forEach((card) => {
+    data.results.forEach(async(card) => {
       const cardElement = document.createElement("article");
       episodeLink = card.episode[0];
-      // console.log(episodeLink);
-      const secondReponse = fetch(episodeLink).then((secondReponse) =>
-        secondReponse.json().then((secondData) => {
-          episodeData = secondData;
-          // console.log(episodeData);
-          return episodeData;
-        })
-      );
-      console.log(secondReponse);
-      // const episode = secondReponse.json();
-      // console.log(episode.results);
-
+      const secondResponse = await fetch(episodeLink);
+      const episodeData = await secondResponse.json();
+      console.log(episodeData);
       cardElement.className = "Card";
       cardElement.innerHTML = `
     <img src="${card.image}"/>
@@ -38,7 +29,7 @@ async function fetchCharacters() {
         <p>${card.location.name}</p>
         <h3 class="Card__information-headline">First seen in:</h3>
         <p>
-        
+        ${episodeData.name}
         </p>
       </section>
       `;
