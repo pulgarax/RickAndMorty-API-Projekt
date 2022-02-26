@@ -1,7 +1,8 @@
 import "./style.css";
 
-const apiurl = "https://rickandmortyapi.com/api/character";
-const secondPageURL = "https://rickandmortyapi.com/api/character/?page=2";
+let apiurl = "https://rickandmortyapi.com/api/character";
+let nextPage = "";
+let previousPage = "";
 
 fetchCharacters();
 
@@ -14,7 +15,6 @@ async function fetchCharacters() {
   try {
     const response = await fetch(apiurl);
     const data = await response.json();
-    let episodeData = "";
     cardsContainer.innerHTML = "";
     data.results
       .filter(
@@ -49,6 +49,8 @@ async function fetchCharacters() {
       `;
         cardsContainer.append(cardElement);
       });
+    nextPage = data.info.next;
+    previousPage = data.info.prev;
   } catch (error) {
     console.log(error);
   }
@@ -57,47 +59,19 @@ async function fetchCharacters() {
 filterForm.addEventListener("change", () => {
   currentFilter = filterForm.elements["tag-filter"].value;
   fetchCharacters();
-  fetchMoreCharacters();
 });
 
-fetchMoreCharacters();
+const nextPageButton = document.querySelector("[data-js=next-page]");
+const previousPageButton = document.querySelector("[data-js=previous-page]");
 
-async function fetchMoreCharacters() {
-  try {
-    const response = await fetch(secondPageURL);
-    const data = await response.json();
-    let episodeData = "";
-    cardsContainer.innerHTML = "";
-    data.results
-      .filter(
-        (card) =>
-          card.status == currentFilter ||
-          currentFilter == "all" ||
-          card.species == currentFilter
-      )
-      .forEach(async (card) => {
-        const cardElement = document.createElement("article");
-        episodeLink = card.episode[0];
-        const secondResponse = await fetch(episodeLink);
-        const episodeData = await secondResponse.json();
-        console.log(episodeData);
-        cardElement.className = "Card";
-        cardElement.innerHTML = `
-    <img src="${card.image}"/>
-      <section class="Card__information">
-        <h2 class='card-header'>${card.name}</h2>
-        <p>${card.status} - ${card.species}</p>
-        <h3 class="Card__information-headline">Last known location:</h3>
-        <p>${card.location.name}</p>
-        <h3 class="Card__information-headline">First seen in:</h3>
-        <p>
-        ${episodeData.name}
-        </p>
-      </section>
-      `;
-        cardsContainer.append(cardElement);
-      });
-  } catch (error) {
-    console.log(error);
-  }
-}
+nextPageButton.addEventListener("click", () => {
+  apiurl = nextPage;
+  fetchCharacters();
+  window.scrollTo(0, 0);
+});
+
+previousPageButton.addEventListener("click", () => {
+  apiurl = previousPage;
+  fetchCharacters();
+  window.scrollTo(0, 0);
+});
