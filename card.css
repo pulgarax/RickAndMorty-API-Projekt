@@ -54,3 +54,19 @@
 .margin-bottom {
   margin-bottom: 20px;
 }
+
+.Button__default {
+  border-radius: 20px;
+  background-color: tomato;
+  border: saddlebrown solid 4px;
+  margin: 20px;
+  height: 50px;
+}
+
+.Button__container {
+  display: flex;
+}
+
+.Button__default:hover {
+  cursor: pointer;
+}
